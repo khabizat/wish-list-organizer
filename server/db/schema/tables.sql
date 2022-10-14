@@ -9,6 +9,6 @@ CREATE TABLE items (
   id SERIAL PRIMARY KEY NOT NULL,
   name TEXT NOT NULL,
   price MONEY,
-  url VARCHAR(255),
+  url VARCHAR(2048),
   category_id INTEGER REFERENCES categories(id) ON DELETE CASCADE
 );

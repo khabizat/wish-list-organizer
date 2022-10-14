@@ -15,8 +15,6 @@ VALUES
 
 -- Seed Clothing & Shoes (category #1)
 ('Birdies mules', 98, 'https://birdies.com/products/womens-slides-swan-red-suede-beaded-cuff?variant=39707281457232', 1),
-('Birdies mules', 98, 'https://birdies.com/products/womens-slides-swan-red-suede-beaded-cuff?variant=39707281457232', 1),
-('Birdies mules', 98, 'https://birdies.com/products/womens-slides-swan-red-suede-beaded-cuff?variant=39707281457232', 1),
 
 -- Seed Accessories (category #2)
 ('Umbrella', 110, 'https://www.longchamp.com/ca/en/products/retractable-umbrella-L1593PES300.html', 2),
@@ -28,7 +26,7 @@ VALUES
 
 -- Seed Beauty (category #4)
 ('Hot Rollers', 170, 'https://www.sephora.com/ca/en/product/volumizing-hot-rollers-luxe-P415212?country_switch=ca&lang=en&skuId=1873579&om_mmc=ppc-GG_15994479088_135623273994_pla-1599491157264_1873579_576701186800_9000631_c&gclid=Cj0KCQjwy5maBhDdARIsAMxrkw38_6Fs2XLTOeeKPMVypFWLcOrZwgwgdsnUbY_fXdL413Sn1hK8ZOwaAhrhEALw_wcB&gclsrc=aw.ds', 4),
-('NuFace face tool ' 250, 'https://www.nordstrom.ca/s/nuface-mini-facial-toning-device/5754869?origin=category-personalizedsort&breadcrumb=Home%2FBrands%2FNuFACE%C2%AE&color=100', 4),
+('NuFace face tool ', 250, 'https://www.nordstrom.ca/s/nuface-mini-facial-toning-device/5754869?origin=category-personalizedsort&breadcrumb=Home%2FBrands%2FNuFACE%C2%AE&color=100', 4),
 
 
 -- Seed Electronics (category #6)
