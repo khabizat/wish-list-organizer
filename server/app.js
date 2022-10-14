@@ -7,6 +7,11 @@ require('dotenv').config();
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+//added routes
+const itemsRouter = require('./routes/items');
+const categoriesRouter = require('./routes/categories');
+
+
 //db connection
 const db = require("./configs/db.config");
 
@@ -20,6 +25,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/api/items', itemsRouter(db));
+app.use('/api/categories', categoriesRouter(db));
+
 
 app.listen(8080, () => {
   console.log("server is running");
