@@ -2,11 +2,10 @@ const router = require("express").Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    const command = "SELECT * FROM categories";
-    db.query(command).then((data) => {
-      res.json(data.rows);
+    db.query(`SELECT * FROM categories`
+      ).then((response) => {
+      return res.json(response.rows);
     });
   });
-
   return router;
 };
