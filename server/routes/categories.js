@@ -2,9 +2,13 @@ const router = require("express").Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    db.query(`SELECT * FROM categories`
+    db.query(
+      `SELECT
+      categories.id as id,
+      categories.name as name
+      FROM categories`
       ).then((response) => {
-      return res.json(response.rows);
+        res.json(response.rows);
     });
   });
   return router;
