@@ -5,8 +5,6 @@ const cors = require("cors");
 var logger = require('morgan');
 require('dotenv').config();
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 
 //added routes
 const itemsRouter = require('./routes/items');
@@ -25,8 +23,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+
 app.use('/api/items', itemsRouter(db));
 app.use('/api/categories', categoriesRouter(db));
 
