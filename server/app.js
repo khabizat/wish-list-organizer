@@ -1,8 +1,8 @@
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
 const cors = require("cors");
-var logger = require('morgan');
+const logger = require('morgan');
 require('dotenv').config();
 
 
@@ -14,7 +14,7 @@ const categoriesRouter = require('./routes/categories');
 //db connection
 const db = require("./configs/db.config");
 
-var app = express();
+const app = express();
 
 app.use(logger('dev'));
 app.use(cors());
