@@ -14,8 +14,8 @@ export default function useApplicationData(props) {
 
   useEffect(() => {
    Promise.all([
-    axios.get('/api/categories'),
-    axios.get('/api/items')
+    axios.get("http://localhost:8080/api/categories"),
+    axios.get("http://localhost:8080/api/items")
   ]).then((all) => {
     console.log(all)
     setState(prev => ({...prev, categories: all[0].data, items: all[1].data }));
