@@ -14,8 +14,10 @@ function CategoryList(props) {
   });
 
   return (
-    <ul>
+    <ul className="w-full max-w-md m-auto bg-white rounded-lg border border-primaryBorder shadow-default py-10 px-16">
+      <li >
       {categories}
+      </li>
     </ul>
   );
 };
