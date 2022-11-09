@@ -1,7 +1,7 @@
 import React from "react";
 import CategoryListItem from "./CategoryListItem";
 
-function CategoryList(props) {
+export default function CategoryList(props) {
 
   const categories = props.categories.map((category) => {
     return (
@@ -19,6 +19,4 @@ function CategoryList(props) {
     </ul>
   );
 };
-
-export default CategoryList;
 

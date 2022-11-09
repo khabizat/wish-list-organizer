@@ -1,6 +1,6 @@
 import React from "react";
 
-function CategoryListItem(props) {
+export default function CategoryListItem(props) {
   
   const category = props.name;
   
@@ -12,5 +12,3 @@ function CategoryListItem(props) {
     </li>
   );
 }
-
-export default CategoryListItem;

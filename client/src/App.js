@@ -4,7 +4,7 @@ import useApplicationData from "./hooks/useApplicationData";
 
 
 
-function App(props) {
+export default function App(props) {
 
   const {
     state,
@@ -23,5 +23,3 @@ function App(props) {
     </main>
   );
 }
-
-export default App;
