@@ -1,5 +1,6 @@
 import React from "react";
 import CategoryList from "./components/CategoryLIst";
+import ItemList from "./components/ItemList";
 import useApplicationData from "./hooks/useApplicationData";
 
 
@@ -20,6 +21,11 @@ export default function App(props) {
         value={state.category}
         onChange={setCategory}
       />
+      {/* <h1>Items List</h1>
+      <ItemList
+        items = {state.items}
+        value={state.item}
+      /> */}
     </main>
   );
 }
