@@ -1,4 +1,4 @@
-# wish-list-organizer
+# Wish List Organizer
 
 App for creating and organizing wish lists as well as tracking when wishlist items go on sale
 
