@@ -4,7 +4,19 @@ import CategoryListItem from "./CategoryListItem";
 
 export default function CategoryList(props) {
 
-  const categories = props.categories.map((category) => {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:8080/api/categories")
+      .then((response) => {
+        setCategories(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
+  const categoryItems = categories.map((category) => {
     return (
       <CategoryListItem
         key={category.id}
@@ -17,7 +29,7 @@ export default function CategoryList(props) {
   return (
     <ul
     >
-      {categories}
+      {categoryItems}
     </ul>
   );
 };
