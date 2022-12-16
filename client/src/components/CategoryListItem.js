@@ -11,11 +11,12 @@ export default function CategoryListItem(props) {
       <li 
         onClick={()=>props.setCategory(category)}
       >
-        <h2 className="w-56 m-auto bg-yellow-100 rounded-lg border border-primaryBorder shadow-default py-10 px-16">
-          {props.name}
-        </h2>
+        <div className="p-4 w-full flex flex-wrap justify-center text-center mb-2">
+          <h2 className="w-1/2 bg-yellow-100 rounded-lg border border-primaryBorder shadow-default py-10 px-16">
+            {props.name}
+          </h2>
+        </div>
       </li>
     </section>
-
   );
 }
