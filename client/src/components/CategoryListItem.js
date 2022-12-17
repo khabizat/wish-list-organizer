@@ -14,6 +14,11 @@ export default function CategoryListItem(props) {
         <div className="p-4 w-full flex flex-wrap justify-center text-center mb-2">
           <h2 className="w-1/2 bg-yellow-100 rounded-lg border border-primaryBorder shadow-default py-10 px-16">
             {props.name}
+            <img
+            className="mx-auto"
+            src="images/add.png"
+            alt="Add"
+          />
           </h2>
         </div>
       </li>
