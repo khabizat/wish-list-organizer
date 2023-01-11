@@ -1,5 +1,6 @@
 import React from "react";
 import CategoryList from "./components/CategoryList";
+import CategoryListItem from "./components/CategoryListItem";
 import ItemList from "./components/ItemList";
 import useApplicationData from "./hooks/useApplicationData";
 
@@ -9,7 +10,7 @@ export default function App(props) {
 
   const {
     state,
-    setCategory
+    setCategoryId
   } = useApplicationData();
 
 
@@ -17,9 +18,11 @@ export default function App(props) {
     <main>
       <CategoryList
         categories={state.categories}
-        value={state.category}
-        onChange={setCategory}
+        value={state.categoryId}
+        onChange={setCategoryId}
       />
+      <ItemList
+        categoryId={state.categoryId}/>
     </main>
   );
 }

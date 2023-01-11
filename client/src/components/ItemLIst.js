@@ -1,26 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import ItemListItem from "./ItemListItem";
 
 export default function ItemList(props) {
 
-  const items = props.items.map((item) => {
+  const [items, setItems] = useState([]);
+
+  const {
+    categoryId
+  } = props;
+  
+  useEffect(() => {
+    axios.get(`http://localhost:8080/api/categories/${props.categoryId}`)
+      .then((response) => {
+        console.log(response.data)
+        setItems(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, [categoryId]);
+
+  const allItems = items.map((item) => {
     return (
       <ItemListItem
         key={item.id}
         name = {item.name}
         price = {item.price}
         url = {item.url}
-        setSelectedCategory = {props.onChange}
       />
     );
   });
 
   return (
-    <>
       <ul>
-        {items}
+        {allItems}
       </ul>
-    </>
   )
 
 }

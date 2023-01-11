@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import CategoryListItem from "./CategoryListItem";
 
+
 export default function CategoryList(props) {
 
   const [categories, setCategories] = useState([]);
@@ -21,14 +22,14 @@ export default function CategoryList(props) {
       <CategoryListItem
         key={category.id}
         name={category.name}
-        setCategory={props.onChange}
+        categoryId={category.id}
+        setCategoryId={props.onChange}
       />
     );
   });
 
   return (
-    <ul
-    >
+    <ul>
       {categoryItems}
     </ul>
   );

@@ -3,28 +3,28 @@ import axios from "axios";
 
 export default function useApplicationData(props) {
   const [state, setState] = useState({
-    category: "Clothing & Shoes",
+    // category: "Clothing & Shoes",
+    categoryId: 1,
     categories: [],
     items: {}
   });
 
   //set the current category
-  const setCategory = category => setState({ ...state, category});
+  const setCategoryId = categoryId => setState({ ...state, categoryId});
 
-
-  useEffect(() => {
-   Promise.all([
-    axios.get("http://localhost:8080/api/categories"),
-    axios.get("http://localhost:8080/api/items")
-  ]).then((all) => {
-    setState(prev => ({...prev, categories: all[0].data, items: all[1].data }));
-  });
-  }, []);
+  // useEffect(() => {
+  //  Promise.all([
+  //   axios.get("http://localhost:8080/api/categories"),
+  //   axios.get("http://localhost:8080/api/items"),
+  // ]).then((all) => {
+  //   setState(prev => ({...prev, categories: all[0].data, items: all[1].data }));
+  // });
+  // }, []);
 
 
   return {
     state,
-    setCategory
+    setCategoryId
   }
 
 }
