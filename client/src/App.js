@@ -15,14 +15,21 @@ export default function App(props) {
 
 
   return (
-    <main>
-      <CategoryList
+    <main className="flex">
+      <div>
+        <CategoryList
         categories={state.categories}
         value={state.categoryId}
         onChange={setCategoryId}
-      />
-      <ItemList
-        categoryId={state.categoryId}/>
+        />
+      </div>
+
+      <div>
+        <ItemList
+        categoryId={state.categoryId}
+        />
+      </div>
+
     </main>
   );
 }

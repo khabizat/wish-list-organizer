@@ -5,13 +5,13 @@ import ItemList from "./ItemList";
 export default function CategoryListItem(props) {
 
   const categoryId = props.categoryId;
-  
+
   return(
       <li 
         onClick={()=>props.setCategoryId(categoryId)}
       >
-        <div className="p-4 w-full flex flex-wrap justify-center text-center mb-2">
-          <h2 className="w-1/2 bg-yellow-100 rounded-lg border border-primaryBorder shadow-default py-10 px-16">
+        <div>
+          <h2 className="bg-yellow-100 rounded-lg border border-primaryBorder shadow-default">
             {props.name}
             <img
             className="mx-auto"
