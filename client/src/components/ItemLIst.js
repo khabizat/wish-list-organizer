@@ -13,7 +13,6 @@ export default function ItemList(props) {
   useEffect(() => {
     axios.get(`http://localhost:8080/api/categories/${props.categoryId}`)
       .then((response) => {
-        console.log(response.data)
         setItems(response.data);
       })
       .catch((error) => {

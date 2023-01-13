@@ -17,7 +17,7 @@ export default function CategoryList(props) {
       });
   }, []);
 
-  const categoryItems = categories.map((category) => {
+  const allCategories = categories.map((category) => {
     return (
       <CategoryListItem
         key={category.id}
@@ -30,7 +30,7 @@ export default function CategoryList(props) {
 
   return (
     <ul>
-      {categoryItems}
+      {allCategories}
     </ul>
   );
 };

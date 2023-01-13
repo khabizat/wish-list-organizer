@@ -7,19 +7,18 @@ export default function CategoryListItem(props) {
   const categoryId = props.categoryId;
 
   return(
-      <li 
-        onClick={()=>props.setCategoryId(categoryId)}
-      >
-        <div>
-          <h2 className="bg-yellow-100 rounded-lg border border-primaryBorder shadow-default">
+    <aside className="w-64" aria-label="Sidebar">
+      <li onClick={()=>props.setCategoryId(categoryId)}>
+          <h2 className="flex align-items-stretch p-2 text-base font-normal bg-yellow-100 text-gray-900 transition duration-75 rounded-lg hover:bg-yellow-500 dark:hover:bg-gray-700 dark:text-white group">
             {props.name}
-            <img
-            className="mx-auto"
+          </h2>
+      </li>
+      {/* <img
+            className="flex justify-start"
             src="images/add.png"
             alt="Add"
-          />
-          </h2>
-        </div>
-      </li>
+          /> */}
+    </aside>
+
   );
 }
