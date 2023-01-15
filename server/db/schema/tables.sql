@@ -7,8 +7,8 @@ CREATE TABLE categories (
 DROP TABLE IF EXISTS items CASCADE;
 CREATE TABLE items (
   id SERIAL PRIMARY KEY NOT NULL,
-  name TEXT NOT NULL,
+  name VARCHAR(2048),
   price MONEY,
   url VARCHAR(2048),
   category_id INTEGER REFERENCES categories(id) ON DELETE CASCADE
-);
+);  
