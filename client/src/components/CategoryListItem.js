@@ -9,16 +9,16 @@ export default function CategoryListItem(props) {
   return(
     <aside className="w-64">
       <li onClick={()=>props.setCategoryId(categoryId)}>
-          <h2 className="flex p-8 text-base font-normal bg-yellow-100 text-gray-900 transition duration-75 hover:bg-yellow-500 dark:hover:bg-gray-700 dark:text-white">
+          <h2 className="flex justify-between p-8 text-lg font-normal bg-yellow-100 text-gray-900 transition duration-75 hover:bg-yellow-500 dark:hover:bg-gray-700 dark:text-white">
             {props.name}
             <button>
               <svg 
+                className="w-10 h-10 hover:fill-gray-500"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
-                stroke="currentColor"
-                class="w-6 h-6">
+                stroke="currentColor">
                 <path 
                   stroke-linecap="round"
                   stroke-linejoin="round"
