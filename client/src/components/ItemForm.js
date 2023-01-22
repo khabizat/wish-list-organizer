@@ -16,6 +16,6 @@ const options = [
   { value: "9", label: "Books" }
 ];
 
-export default function AddItem(props) {
+export default function ItemForm(props) {
   
 }
