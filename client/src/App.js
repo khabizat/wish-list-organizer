@@ -4,7 +4,7 @@ import CategoryListItem from "./components/CategoryListItem";
 import ItemForm from "./components/ItemForm";
 import ItemList from "./components/ItemList";
 import useApplicationData from "./hooks/useApplicationData";
-
+import useVisualMode from "./hooks/useVisualMode";
 
 
 export default function App(props) {
@@ -13,6 +13,12 @@ export default function App(props) {
     state,
     setCategoryId
   } = useApplicationData();
+
+  const { 
+    mode, 
+    transition, 
+    back } = useVisualMode(
+  );  
 
 
   return (
@@ -30,7 +36,9 @@ export default function App(props) {
         categoryId={state.categoryId}
         />
       </div>
-      <ItemForm/>
+      <ItemForm
+        onCancel = {back}
+      />
     </main>
   );
 }

@@ -1,15 +1,32 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import useVisualMode from "../hooks/useVisualMode";
 
 const axios = require("axios");
 
 export default function ItemForm(props) {
 
-  const {name, price, url} = props;
+  const {name, price, url, onCancel} = props;
+
+  const { mode, transition, back } = useVisualMode(
+  );  
+
+
 
   const [itemName, setItemName] = useState(name || "");
   const [itemPrice, setItemPrice] = useState(price || "");
   const [itemLink, setItemLink] = useState(url || "");
+
+  function reset() {
+    setItemName("");
+    setItemPrice("");
+    setItemLink("");
+  }
+
+  function cancel() {
+    reset();
+    onCancel();
+  }
 
   return(
     <main>
@@ -39,7 +56,7 @@ export default function ItemForm(props) {
         </form>
       </section>
       <section>
-          <button>Cancel</button>
+          <button onClick={cancel}>Cancel</button>
           <button>Save</button>
        </section>
     </main>
