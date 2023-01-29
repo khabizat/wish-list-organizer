@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import useVisualMode from "../hooks/useVisualMode";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 const axios = require("axios");
 
@@ -62,8 +63,12 @@ export default function ItemForm(props) {
         />
       </Box>
       <section>
-        <button onClick={cancel}>Cancel</button>
-        <button>Save</button>
+        <Button onClick={cancel} variant="contained" color="error">
+          Cancel
+        </Button>
+        <Button variant="contained" color="success">
+          Save
+        </Button>
       </section>
     </main>
   );
