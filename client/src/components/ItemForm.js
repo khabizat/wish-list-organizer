@@ -37,7 +37,7 @@ export default function ItemForm(props) {
         onSubmit={event => event.preventDefault()}
       >
         <TextField
-          id="filled-search"
+          id="filled-basic"
           label="Enter Item Name"
           type="text"
           variant="filled"
@@ -45,7 +45,7 @@ export default function ItemForm(props) {
           onChange={(event) => setItemName(event.target.value)}
         />
         <TextField
-          id="filled-search"
+          id="filled-basic"
           label="Enter Item Price"
           type="text"
           variant="filled"
@@ -53,7 +53,7 @@ export default function ItemForm(props) {
           onChange={(event) => setItemPrice(event.target.value)}
         />
         <TextField
-          id="filled-search"
+          id="filled-basic"
           label="Enter Item Link"
           type="text"
           variant="filled"
