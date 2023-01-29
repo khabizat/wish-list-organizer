@@ -8,11 +8,6 @@ export default function ItemForm(props) {
 
   const {name, price, url, onCancel} = props;
 
-  const { mode, transition, back } = useVisualMode(
-  );  
-
-
-
   const [itemName, setItemName] = useState(name || "");
   const [itemPrice, setItemPrice] = useState(price || "");
   const [itemLink, setItemLink] = useState(url || "");
