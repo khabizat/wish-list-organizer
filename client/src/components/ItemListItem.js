@@ -1,4 +1,5 @@
 import React from "react";
+import Microlink from '@microlink/react'
 
 export default function ItemListItem(props) {
 
@@ -14,7 +15,7 @@ export default function ItemListItem(props) {
       <span className="mt-4 flex justify-start">{name}</span>
       <hr className="border-b-4 border-black"></hr>
       <span className="mt-4 flex justify-start">{price}</span>
-      <span className="mt-4 flex justify-start">{url}</span>
+      <Microlink url={url} />
     </div>
   )
 }
