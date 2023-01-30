@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ItemListItem from "./ItemListItem";
+import IconButton from '@mui/material/IconButton';
+import Add from "@mui/icons-material/Add";
 
 export default function ItemList(props) {
 
@@ -33,9 +35,16 @@ export default function ItemList(props) {
 
 
   return (
-      <ul>
-        {allItems}
-      </ul>
+    <ul>
+      {allItems}
+      <div className="flex justify-center">
+        <IconButton
+          size="large"
+          aria-label="add"
+        >
+          <Add sx={{ fontSize: "80px" }} />
+        </IconButton>
+      </div>
+    </ul>
   )
-
 }
