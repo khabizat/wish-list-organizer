@@ -30,13 +30,15 @@ export default function ItemForm(props) {
     <main>
       <Box
         component="form"
+        direction="column"
         sx={{
-          '& .MuiTextField-root': { m: 1, width: '25ch' },
+          '& .MuiTextField-root': { m: 1, width: '25ch' }
         }}
         noValidate
         autoComplete="off"
         onSubmit={event => event.preventDefault()}
       >
+        {/* <form autoComplete="off" onSubmit={event => event.preventDefault()} className="m-5"> */}
         <TextField
           id="filled-basic"
           label="Enter Item Name"
@@ -62,6 +64,7 @@ export default function ItemForm(props) {
           onChange={(event) => setItemLink(event.target.value)}
         />
       </Box>
+      {/* </form> */}
       <section>
         <Button onClick={cancel} variant="contained" color="error">
           Cancel

@@ -35,10 +35,11 @@ export default function ItemList(props) {
 
 
   return (
-    <ul>
+    <ul className="w-full">
       {allItems}
       <div className="flex justify-center">
         <IconButton
+          onClick={()=>alert('You clicked')}
           size="large"
           aria-label="add"
         >
