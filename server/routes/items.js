@@ -12,7 +12,7 @@ module.exports = (db) => {
       FROM items
       JOIN categories
       ON categories.id = items.category_id
-      ORDER BY items.price DESC;`
+      ORDER BY items.id ASC;`
       ).then((response) => {
         res.json(response.rows);
       }).catch((err) => {
