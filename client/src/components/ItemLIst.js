@@ -1,16 +1,25 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ItemListItem from "./ItemListItem";
+import ItemForm from "./ItemForm";
 import IconButton from '@mui/material/IconButton';
 import Add from "@mui/icons-material/Add";
+import useVisualMode from "../hooks/useVisualMode";
 
 export default function ItemList(props) {
 
   const [items, setItems] = useState([]);
+  const [showForm, setShowForm] = useState(false);
 
   const {
     categoryId
   } = props;
+
+  const { 
+    mode, 
+    transition, 
+    back } = useVisualMode(
+  );  
   
   useEffect(() => {
     axios.get(`http://localhost:8080/api/categories/${props.categoryId}`)
@@ -39,13 +48,16 @@ export default function ItemList(props) {
       {allItems}
       <div className="flex justify-center">
         <IconButton
-          onClick={()=>alert('You clicked')}
+          onClick = {() => setShowForm(!showForm)}
           size="large"
           aria-label="add"
         >
           <Add sx={{ fontSize: "80px" }} />
         </IconButton>
       </div>
+      {showForm && (
+      <ItemForm onCancel = {back}/>
+      )}
     </ul>
   )
 }
