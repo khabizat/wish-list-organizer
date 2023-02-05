@@ -30,7 +30,6 @@ export default function ItemForm(props) {
     <main>
       <Box
         component="form"
-        direction="column"
         sx={{
           '& .MuiTextField-root': { m: 1, width: '25ch' }
         }}
