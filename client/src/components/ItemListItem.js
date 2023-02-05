@@ -11,11 +11,11 @@ export default function ItemListItem(props) {
 
 
   return (
-    <div className="p-5 hover:bg-blue-200 hover:border-blue-300">
+    <div className="p-5 hover:bg-blue-200 hover:border-blue-300 h-64 w-64 md:h-auto md:w-auto">
       <span className="mt-4 flex justify-start">{name}</span>
       <hr className="border-b-4 border-black"></hr>
       <span className="mt-4 flex justify-start">{price}</span>
       <Microlink url={url} />
     </div>
-  )
+  )  
 }
