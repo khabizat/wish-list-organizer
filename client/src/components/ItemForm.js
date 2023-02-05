@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
-import useVisualMode from "../hooks/useVisualMode";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -30,6 +28,8 @@ export default function ItemForm(props) {
     <main>
       <Box
         component="form"
+        display="flex"
+        flexDirection="column"
         sx={{
           '& .MuiTextField-root': { m: 1, width: '25ch' }
         }}
