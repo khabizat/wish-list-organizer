@@ -65,10 +65,10 @@ export default function ItemForm(props) {
       </Box>
       {/* </form> */}
       <section>
-        <Button onClick={cancel} variant="contained" color="error">
+        <Button style={{width: '100px', marginRight: '10px', marginLeft: '10px'}} onClick={cancel} variant="contained" color="error">
           Cancel
         </Button>
-        <Button variant="contained" color="success">
+        <Button style={{width: '100px'}} variant="contained" color="success">
           Save
         </Button>
       </section>
