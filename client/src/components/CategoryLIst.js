@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import List from '@mui/material/List';
+// import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
 import CategoryListItem from "./CategoryListItem";
 
-
 export default function CategoryList(props) {
-
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -17,21 +18,19 @@ export default function CategoryList(props) {
       });
   }, []);
 
-  const allCategories = categories.map((category) => {
-    return (
+  const allCategories = categories.map((category) => (
+    <ListItemButton  key={category.id}>
       <CategoryListItem
-        key={category.id}
         name={category.name}
         categoryId={category.id}
         setCategoryId={props.onChange}
       />
-    );
-  });
+    </ListItemButton>
+  ));
 
   return (
-    <ul>
+    <List>
       {allCategories}
-    </ul>
+    </List>
   );
 };
-
