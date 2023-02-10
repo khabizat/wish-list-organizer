@@ -7,24 +7,45 @@ const axios = require("axios");
 
 export default function ItemForm(props) {
 
+  const {name, price, url, categoryId, onCancel} = props; 
+  
   const [isFormVisible, setIsFormVisible] = useState(true);
-
-  const {name, price, url, onCancel} = props;
-
   const [itemName, setItemName] = useState(name || "");
   const [itemPrice, setItemPrice] = useState(price || "");
   const [itemLink, setItemLink] = useState(url || "");
+
+  const [itemCategoryId, setItemCategoryId] = useState(categoryId || "");
 
   function reset() {
     setItemName("");
     setItemPrice("");
     setItemLink("");
+    setItemCategoryId("");
   }
 
   function cancel() {
     reset();
     setIsFormVisible(false);
     onCancel();
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    axios
+      .post("http://localhost:8080/api/items", {
+        name: itemName,
+        price: itemPrice,
+        url: itemLink,
+        categoryId: itemCategoryId
+      })
+      .then((response) => {
+        console.log(response.data);
+        reset();
+        setIsFormVisible(false);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }
 
   return (
@@ -65,6 +86,14 @@ export default function ItemForm(props) {
             value={itemLink}
             onChange={(event) => setItemLink(event.target.value)}
           />
+          <TextField
+            id="filled-basic"
+            label="Enter Item Category"
+            type="text"
+            variant="filled"
+            value={categoryId}
+            onChange={(event) => setItemCategoryId(event.target.value)}
+          />
         </Box>
       ) : null }
       { isFormVisible ? (
@@ -72,7 +101,7 @@ export default function ItemForm(props) {
           <Button style={{width: '100px', marginRight: '10px', marginLeft: '10px'}} onClick={cancel} variant="contained" color="error">
             Cancel
           </Button>
-          <Button style={{width: '100px'}} variant="contained" color="success">
+          <Button onClick={handleSubmit} style={{width: '100px'}} variant="contained" color="success">
             Save
           </Button>
         </section>
