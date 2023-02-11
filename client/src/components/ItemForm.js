@@ -7,7 +7,7 @@ const axios = require("axios");
 
 export default function ItemForm(props) {
 
-  const {name, price, url, categoryId, onCancel} = props; 
+  const {name, price, url, categoryId, onCancel, onAdd} = props; 
   
   const [isFormVisible, setIsFormVisible] = useState(true);
   const [itemName, setItemName] = useState(name || "");
@@ -42,6 +42,7 @@ export default function ItemForm(props) {
         console.log(response.data);
         reset();
         setIsFormVisible(false);
+        onAdd(response.data); // call the onAdd prop with the newly added item
       })
       .catch((error) => {
         console.error(error);

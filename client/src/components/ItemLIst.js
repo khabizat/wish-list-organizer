@@ -31,6 +31,11 @@ export default function ItemList(props) {
       });
   }, [categoryId]);
 
+  //update the item list in real-time
+  const handleAdd = (newItem) => {
+    setItems([...items, newItem]);
+  };
+
   const allItems = items.map((item) => {
     return (
       <ItemListItem
@@ -56,7 +61,7 @@ export default function ItemList(props) {
         </IconButton>
       </div>
       {showForm && (
-      <ItemForm onCancel = {back}/>
+      <ItemForm onCancel = {back} onAdd={handleAdd}/>
       )}
     </ul>
   )
