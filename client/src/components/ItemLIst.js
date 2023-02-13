@@ -22,7 +22,7 @@ export default function ItemList(props) {
   );  
   
   useEffect(() => {
-    axios.get(`http://localhost:8080/api/categories/${props.categoryId}`)
+    axios.get(`http://localhost:8080/api/categories/${categoryId}`)
       .then((response) => {
         setItems(response.data);
       })
@@ -36,13 +36,28 @@ export default function ItemList(props) {
     setItems([...items, newItem]);
   };
 
+
+  const handleDelete = (itemId) => {
+    axios.delete(`http://localhost:8080/api/items/${parseInt(itemId, 10)}`)
+      .then(() => {
+        setItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
+
   const allItems = items.map((item) => {
+    console.log(item.item)
     return (
       <ItemListItem
-        key={item.id}
+        itemId={item.item}
+        key={item.item}
         name = {item.name}
         price = {item.price}
         url = {item.url}
+        onDelete={() => handleDelete(item.item)}
       />
     );
   });

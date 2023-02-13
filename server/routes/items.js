@@ -21,6 +21,30 @@ module.exports = (db) => {
       });
   });
 
+  router.get("/:itemId", (req, res) => {
+    const { itemId } = req.params;
+    db.query(
+      `SELECT 
+      items.id as item_id,
+      items.name as name,
+      items.price as price,
+      items.url as url,
+      items.category_id as category_id
+      FROM items
+      JOIN categories
+      ON categories.id = items.category_id
+      WHERE items.id = $1
+      ORDER BY categories.id DESC;`,
+      [itemId]
+    )
+      .then((response) => {
+        return res.json(response.rows);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  });
+
   router.post("/", (req, res) => {
     const { name, price, url, categoryId  } = req.body;
     db.query(
@@ -37,6 +61,27 @@ module.exports = (db) => {
         return res.json(err);
       });
   });
+
+  router.delete("/:itemId", (req, res) => {
+    const  { itemId } = req.params;
+    db.query(
+      `DELETE FROM items
+      WHERE id = $1
+      RETURNING *;
+      `,
+      [itemId]
+    )
+      .then((response) => {
+        if (response.rows.length === 0) {
+          return res.status(404).json({ error: "Item not found" });
+        }
+        res.json(response.rows[0]);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json({ error: "Something went wrong" });
+      });
+});
 
   return router;
 };
