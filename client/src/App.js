@@ -13,13 +13,6 @@ export default function App(props) {
     setCategoryId
   } = useApplicationData();
 
-  // const { 
-  //   mode, 
-  //   transition, 
-  //   back } = useVisualMode(
-  // );  
-
-
   return (
     <main className="flex">
       <div>
@@ -35,9 +28,6 @@ export default function App(props) {
         categoryId={state.categoryId}
         />
       </div>
-      {/* <ItemForm
-        onCancel = {back}
-      /> */}
     </main>
   );
 }

@@ -49,7 +49,7 @@ export default function ItemList(props) {
 
 
   const allItems = items.map((item) => {
-    console.log(item.item)
+    // console.log(item.item)
     return (
       <ItemListItem
         itemId={item.item}
