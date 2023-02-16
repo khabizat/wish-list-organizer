@@ -83,5 +83,51 @@ module.exports = (db) => {
       });
 });
 
+router.put("/:itemId", (req, res) => {
+  const { itemId } = req.params;
+  const { name, price, url, categoryId } = req.body;
+
+  db.query(
+    `UPDATE items
+    SET name = $1, price = $2, url = $3, category_id = $4
+    WHERE id = $5
+    RETURNING *`,
+    [name, price, url, categoryId, itemId]
+  )
+    .then((response) => {
+      if (response.rows.length === 0) {
+        return res.status(404).json({ error: "Item not found" });
+      }
+      res.json(response.rows[0]);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({ error: "Something went wrong" });
+    });
+});
+
+router.put("/:itemId", (req, res) => {
+  const { itemId } = req.params;
+  const { name, price, url, categoryId } = req.body;
+
+  db.query(
+    `UPDATE items
+    SET name = $1, price = $2, url = $3, category_id = $4
+    WHERE id = $5
+    RETURNING *`,
+    [name, price, url, categoryId, itemId]
+  )
+    .then((response) => {
+      if (response.rows.length === 0) {
+        return res.status(404).json({ error: "Item not found" });
+      }
+      res.json(response.rows[0]);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({ error: "Something went wrong" });
+    });
+});
+
   return router;
 };
