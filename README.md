@@ -5,12 +5,11 @@ App for creating and organizing wish lists as well as tracking when wishlist ite
 
 ## Tech Stack
 
-Front-End: React, JavaScript, Axios, JSX, HTML, SASS, Webpack
+Front-End: React, JavaScript, Axios, JSX, HTML, CSS, Material UI
 
-Back-End: Express, Node.js, PostgreSQL
+Back-End: Node.js, Express.js
 
-
-png)
+Database: PostgreSQL
 
 
 ## Setup
