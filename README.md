@@ -1,15 +1,22 @@
 # Wish List Organizer
 
-App for creating and organizing wish lists as well as tracking when wishlist items go on sale
-
+```sh
+App for creating and organizing wishlists items into different categories
+```
 
 ## Tech Stack
 
+```sh
 Front-End: React, JavaScript, Axios, JSX, HTML, CSS, Material UI
+```
 
+```sh
 Back-End: Node.js, Express.js
+```
 
+```sh
 Database: PostgreSQL
+```
 
 
 ## Setup
