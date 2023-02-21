@@ -7,13 +7,22 @@ const axios = require("axios");
 
 export default function ItemForm(props) {
 
-  const {name, price, url, categoryId, onCancel, onAdd} = props; 
-  
+  const {
+    name,
+    price,
+    url,
+    categoryId,
+    onCancel,
+    onAdd,
+    onUpdate,
+    itemId,
+    selectedItemId,
+    setSelectedItemId} = props; 
+
   const [isFormVisible, setIsFormVisible] = useState(true);
   const [itemName, setItemName] = useState(name || "");
   const [itemPrice, setItemPrice] = useState(price || "");
   const [itemLink, setItemLink] = useState(url || "");
-
   const [itemCategoryId, setItemCategoryId] = useState(categoryId || "");
 
   function reset() {
@@ -29,25 +38,31 @@ export default function ItemForm(props) {
     onCancel();
   }
 
+
   function handleSubmit(event) {
     event.preventDefault();
-    axios
-      .post("http://localhost:8080/api/items", {
+    if (selectedItemId) {
+      onUpdate(selectedItemId, itemName, itemLink, itemPrice, itemCategoryId);
+      setSelectedItemId(null);
+    } else {
+      axios.post("http://localhost:8080/api/items", {
         name: itemName,
         price: itemPrice,
         url: itemLink,
         categoryId: itemCategoryId
       })
       .then((response) => {
-        console.log(response.data);
         reset();
         setIsFormVisible(false);
-        onAdd(response.data); // call the onAdd prop with the newly added item
+        onAdd(response.data);
       })
       .catch((error) => {
         console.error(error);
       });
+    }
   }
+  
+
 
   return (
     <main>
@@ -99,7 +114,7 @@ export default function ItemForm(props) {
       ) : null }
       { isFormVisible ? (
         <section>
-          <Button style={{width: '100px', marginRight: '10px', marginLeft: '10px'}} onClick={cancel} variant="contained" color="error">
+          <Button onClick={cancel} style={{width: '100px', marginRight: '10px', marginLeft: '10px'}} variant="contained" color="error">
             Cancel
           </Button>
           <Button onClick={handleSubmit} style={{width: '100px'}} variant="contained" color="success">

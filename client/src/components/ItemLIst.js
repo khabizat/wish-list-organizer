@@ -10,7 +10,8 @@ export default function ItemList(props) {
 
   const [items, setItems] = useState([]);
   const [showForm, setShowForm] = useState(false);
-
+  const [selectedItemId, setSelectedItemId] = useState(null);
+  
   const {
     categoryId
   } = props;
@@ -36,7 +37,6 @@ export default function ItemList(props) {
     setItems([...items, newItem]);
   };
 
-
   const handleDelete = (itemId) => {
     axios.delete(`http://localhost:8080/api/items/${parseInt(itemId, 10)}`)
       .then(() => {
@@ -47,17 +47,57 @@ export default function ItemList(props) {
       });
   };
 
+  const handleEdit = (itemId) => {
+    setSelectedItemId(itemId);
+    console.log(`Edit item with ID ${itemId}`);
+  };
+
+
+  //update item information on the server
+  const handleUpdate = (itemId, name, url, price, categoryId) => {
+    // console.log("handleUpdate called with arguments: ", itemId, name, url, price, categoryId);
+    const updatedItem = {
+      id: itemId,
+      name: name,
+      url: url,
+      price: price,
+      categoryId: parseInt(categoryId, 10)
+    };
+    console.log('updated item', updatedItem);
+    axios
+      .put(`http://localhost:8080/api/items/${itemId}`, updatedItem)
+      .then((response) => {
+        console.log(response.data); // Add this line to log the response
+        const updatedItems = items.map((item) => {
+          if (item.item === itemId) {
+            return response.data;
+          }
+          return item;
+        });
+        setItems(updatedItems);
+        setSelectedItemId(null);
+      })
+      .catch((error) => {
+        console.log("update error", error);
+      });
+  };
+
 
   const allItems = items.map((item) => {
-    // console.log(item.item)
+    // console.log(items)
     return (
       <ItemListItem
-        itemId={item.item}
         key={item.item}
+        itemId={item.item}
         name = {item.name}
         price = {item.price}
         url = {item.url}
+        categoryId={item.category_id}
         onDelete={() => handleDelete(item.item)}
+        onEdit={handleEdit}
+        selectedItemId={selectedItemId}
+        onUpdate={handleUpdate}
+        setSelectedItemId={setSelectedItemId}
       />
     );
   });
@@ -76,7 +116,11 @@ export default function ItemList(props) {
         </IconButton>
       </div>
       {showForm && (
-      <ItemForm onCancel = {back} onAdd={handleAdd}/>
+      <ItemForm 
+        onCancel={back}
+        onAdd={handleAdd}
+        onUpdate={handleUpdate}
+      />
       )}
     </ul>
   )

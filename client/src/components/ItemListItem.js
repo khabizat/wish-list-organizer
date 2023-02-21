@@ -10,21 +10,29 @@ import ItemForm from "./ItemForm";
 export default function ItemListItem(props) {
 
   const {
+    itemId,
     name,
     url,
     price,
-    onDelete
+    onDelete,
+    onEdit,
+    selectedItemId,
+    setSelectedItemId,
+    onUpdate
   } = props;
 
 
   const [isEditing, setIsEditing] = useState(false);
 
-  const handleEdit = () => {
+  const handleEditClick = () => {
     setIsEditing(true);
-  }
+    onEdit(itemId);
+    console.log(`handleEditClick from ItemListItem with id ${itemId}`)
+  };
 
   const handleCancel = () => {
     setIsEditing(false);
+    console.log('handleCancel from ItemListItem')
   }
   
 
@@ -35,6 +43,9 @@ export default function ItemListItem(props) {
         url={url}
         price={price}
         onCancel={handleCancel}
+        selectedItemId={itemId}
+        onUpdate={onUpdate}
+        setSelectedItemId={setSelectedItemId}
       />
     );
   }
@@ -44,7 +55,7 @@ export default function ItemListItem(props) {
       <div className="flex justify-between">
         <span className="mt-4 flex justify-start">{name}</span>
         <div className="flex justify-end space-x-2">
-          <button onClick={handleEdit}>
+          <button onClick={handleEditClick}>
             <EditOutlinedIcon />
           </button>
           <button onClick={onDelete}>
