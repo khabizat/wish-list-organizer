@@ -1,9 +1,8 @@
 import React, { useState } from "react";
+import axios from "axios";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-
-const axios = require("axios");
 
 export default function ItemForm(props) {
 
@@ -17,7 +16,8 @@ export default function ItemForm(props) {
     onUpdate,
     itemId,
     selectedItemId,
-    setSelectedItemId} = props; 
+    setSelectedItemId
+  } = props; 
 
   const [isFormVisible, setIsFormVisible] = useState(true);
   const [itemName, setItemName] = useState(name || "");
@@ -44,6 +44,7 @@ export default function ItemForm(props) {
     if (selectedItemId) {
       onUpdate(selectedItemId, itemName, itemLink, itemPrice, itemCategoryId);
       setSelectedItemId(null);
+      cancel();
     } else {
       axios.post("http://localhost:8080/api/items", {
         name: itemName,

@@ -12,6 +12,8 @@ export default function ItemList(props) {
   const [showForm, setShowForm] = useState(false);
   const [selectedItemId, setSelectedItemId] = useState(null);
   
+  console.log(items);
+
   const {
     categoryId
   } = props;
@@ -37,6 +39,7 @@ export default function ItemList(props) {
     setItems([...items, newItem]);
   };
 
+  //delete item from the list
   const handleDelete = (itemId) => {
     axios.delete(`http://localhost:8080/api/items/${parseInt(itemId, 10)}`)
       .then(() => {
@@ -47,15 +50,14 @@ export default function ItemList(props) {
       });
   };
 
+  //edit item from the list - get item id
   const handleEdit = (itemId) => {
     setSelectedItemId(itemId);
     console.log(`Edit item with ID ${itemId}`);
   };
 
-
   //update item information on the server
   const handleUpdate = (itemId, name, url, price, categoryId) => {
-    // console.log("handleUpdate called with arguments: ", itemId, name, url, price, categoryId);
     const updatedItem = {
       id: itemId,
       name: name,
@@ -67,9 +69,8 @@ export default function ItemList(props) {
     axios
       .put(`http://localhost:8080/api/items/${itemId}`, updatedItem)
       .then((response) => {
-        console.log(response.data); // Add this line to log the response
         const updatedItems = items.map((item) => {
-          if (item.item === itemId) {
+          if (item.id === itemId) {
             return response.data;
           }
           return item;
@@ -82,18 +83,17 @@ export default function ItemList(props) {
       });
   };
 
-
   const allItems = items.map((item) => {
     // console.log(items)
     return (
       <ItemListItem
-        key={item.item}
-        itemId={item.item}
+        key={item.id}
+        itemId={item.id}
         name = {item.name}
         price = {item.price}
         url = {item.url}
         categoryId={item.category_id}
-        onDelete={() => handleDelete(item.item)}
+        onDelete={() => handleDelete(item.id)}
         onEdit={handleEdit}
         selectedItemId={selectedItemId}
         onUpdate={handleUpdate}

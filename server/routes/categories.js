@@ -17,13 +17,13 @@ module.exports = (db) => {
     const { categoryId } = req.params;
     db.query(`
       SELECT
-      items.id as item,
+      items.id as id,
       items.url as url,
       items.price as price,
       items.category_id as category_id,
       items.name as name
-      FROM items 
-      JOIN categories 
+      FROM items
+      JOIN categories
       ON items.category_id = categories.id
       WHERE categories.id = $1`, [categoryId])
       .then((response) => {
