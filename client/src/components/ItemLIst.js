@@ -104,8 +104,10 @@ export default function ItemList(props) {
 
 
   return (
-    <ul className="w-full">
-      {allItems}
+    <div>
+      <ul className="w-full">
+        {allItems}
+      </ul>
       <div className="flex justify-center">
         <IconButton
           onClick = {() => setShowForm(!showForm)}
@@ -122,6 +124,6 @@ export default function ItemList(props) {
         onUpdate={handleUpdate}
       />
       )}
-    </ul>
+    </div>
   )
 }

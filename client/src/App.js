@@ -15,12 +15,12 @@ export default function App(props) {
 
   return (
     <main className="flex">
-      <div>
+      <div className="bg-white h-screen overflow-y-scroll">
         <CategoryList
         categories={state.categories}
         value={state.categoryId}
         onChange={setCategoryId}
-        />
+      />
       </div>
 
       <div>

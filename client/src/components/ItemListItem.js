@@ -51,7 +51,7 @@ export default function ItemListItem(props) {
   }
 
   return (
-    <div className="p-5 hover:bg-blue-200 hover:border-blue-300 h-64 w-64 md:h-auto md:w-auto">
+    <div className="p-5 hover:bg-blue-200 hover:border-blue-300 h-64 w-1/3 md:h-auto md:w-auto">
       <div className="flex justify-between">
         <span className="mt-4 flex justify-start">{name}</span>
         <div className="flex justify-end space-x-2">
