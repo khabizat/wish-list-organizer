@@ -8,7 +8,8 @@ VALUES
 ('Electronics'),
 ('Home Decor'),
 ('Kitchen'),
-('Books');
+('Books'),
+('Other');
 
 INSERT INTO items (name, price, url, category_id)
 VALUES

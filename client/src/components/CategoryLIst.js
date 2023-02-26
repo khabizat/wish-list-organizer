@@ -14,6 +14,7 @@ import SmartphoneOutlinedIcon from '@mui/icons-material/SmartphoneOutlined';
 import ChairOutlined from "@mui/icons-material/ChairOutlined";
 import BlenderOutlinedIcon from '@mui/icons-material/BlenderOutlined';
 import AutoStoriesOutlinedIcon from '@mui/icons-material/AutoStoriesOutlined';
+import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
 
 const categoryIcons = {
   "Clothing & Shoes": <CheckroomOutlinedIcon />,
@@ -25,6 +26,7 @@ const categoryIcons = {
   "Home Decor": <ChairOutlined />,
   "Kitchen": <BlenderOutlinedIcon/>,
   "Books": <AutoStoriesOutlinedIcon />,
+  "Other": <MoreHorizOutlinedIcon />,
 };
 
 export default function CategoryList(props) {
