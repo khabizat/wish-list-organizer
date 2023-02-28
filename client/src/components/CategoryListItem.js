@@ -5,6 +5,7 @@ export default function CategoryListItem(props) {
   const categoryId = props.categoryId;
   const isSelected = categoryId === props.selectedCategoryId;
 
+  //update the selected category ID and the category ID in the parent component's state
   const handleCategoryClick = () => {
     props.setSelectedCategoryId(categoryId);
     props.setCategoryId(categoryId);
