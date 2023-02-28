@@ -15,7 +15,7 @@ INSERT INTO items (name, price, url, category_id)
 VALUES
 
 -- Seed Clothing & Shoes (category #1)
-('Birdies mules', 98, 'https://birdies.com/products/womens-slides-swan-red-suede-beaded-cuff?variant=39707281457232', 1),
+('Birdies mules', 140, 'https://birdies.com/products/womens-slides-phoebe-woven-tassel-orange-pink?variant=39842925543504', 1),
 
 -- Seed Accessories (category #2)
 ('Umbrella', 110, 'https://www.longchamp.com/ca/en/products/retractable-umbrella-L1593PES300.html', 2),

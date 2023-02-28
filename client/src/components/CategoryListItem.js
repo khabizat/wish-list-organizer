@@ -1,16 +1,26 @@
-import { React } from "react";
+import { React, useState } from "react";
 
 export default function CategoryListItem(props) {
 
   const categoryId = props.categoryId;
+  const isSelected = categoryId === props.selectedCategoryId;
+
+  const handleCategoryClick = () => {
+    props.setSelectedCategoryId(categoryId);
+    props.setCategoryId(categoryId);
+  };
 
   return(
     <aside className="w-full">
-      <li onClick={()=>props.setCategoryId(categoryId)}>
-          <h2 className="flex justify-start gap-2 p-6 text-lg font-semibold font-mono text-gray-900 transition duration-75 hover:bg-yellow-500">
-            {props.icon}
-            {props.name}
-          </h2>
+      <li onClick={handleCategoryClick}>
+        <h2
+          className={`flex justify-start gap-2 p-6 text-lg font-semibold font-mono ${
+            isSelected ? "bg-yellow-500" : "bg-white"
+          } transition duration-75 hover:bg-yellow-500`}
+        >
+          {props.icon}
+          {props.name}
+        </h2>
       </li>
     </aside>
   );

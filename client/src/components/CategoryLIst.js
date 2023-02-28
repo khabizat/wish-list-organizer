@@ -31,6 +31,7 @@ const categoryIcons = {
 
 export default function CategoryList(props) {
   const [categories, setCategories] = useState([]);
+  const [selectedCategoryId, setSelectedCategoryId] = useState(null);
 
   useEffect(() => {
     axios.get("http://localhost:8080/api/categories")
@@ -49,6 +50,8 @@ export default function CategoryList(props) {
         icon={categoryIcons[category.name]}
         categoryId={category.id}
         setCategoryId={props.onChange}
+        setSelectedCategoryId={setSelectedCategoryId}
+        selectedCategoryId={selectedCategoryId}
       />
     </ListItemButton>
   ));
