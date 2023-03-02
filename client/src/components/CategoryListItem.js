@@ -15,7 +15,7 @@ export default function CategoryListItem(props) {
     <aside className="w-full">
       <li onClick={handleCategoryClick}>
         <h2
-          className={`flex justify-start gap-2 p-6 text-lg font-semibold font-mono ${
+          className={`flex justify-start gap-2 p-2 text-lg font-semibold font-mono ${
             isSelected ? "bg-yellow-500" : "bg-white"
           } transition duration-75 hover:bg-yellow-500`}
         >

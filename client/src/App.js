@@ -23,7 +23,7 @@ export default function App(props) {
       />
       </div>
 
-      <div>
+      <div className="bg-white h-screen overflow-y-scroll">
         <ItemList
         categoryId={state.categoryId}
         />
