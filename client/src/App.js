@@ -15,7 +15,7 @@ export default function App(props) {
 
   return (
     <main className="flex">
-      <div className="bg-white h-screen overflow-y-scroll">
+      <div className="bg-white h-screen overflow-y-scroll w-1/5">
         <CategoryList
         categories={state.categories}
         value={state.categoryId}
@@ -23,7 +23,7 @@ export default function App(props) {
       />
       </div>
 
-      <div className="bg-white h-screen overflow-y-scroll">
+      <div className="bg-white h-screen overflow-y-scroll w-2/5">
         <ItemList
         categoryId={state.categoryId}
         />

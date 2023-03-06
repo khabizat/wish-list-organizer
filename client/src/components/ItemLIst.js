@@ -105,7 +105,7 @@ export default function ItemList(props) {
 
   return (
     <div>
-      <ul className="w-full">
+      <ul>
         {allItems}
       </ul>
       <div className="flex justify-center">
