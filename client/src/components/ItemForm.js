@@ -25,21 +25,21 @@ export default function ItemForm(props) {
   const [itemLink, setItemLink] = useState(url || "");
   const [itemCategoryId, setItemCategoryId] = useState(categoryId || "");
 
-  function reset() {
+  const reset = () =>{
     setItemName("");
     setItemPrice("");
     setItemLink("");
     setItemCategoryId("");
   }
 
-  function cancel() {
+  const cancel = () => {
     reset();
     setIsFormVisible(false);
     onCancel();
   }
 
 
-  function handleSubmit(event) {
+  const handleSubmit = (event) => {
     event.preventDefault();
     if (selectedItemId) {
       onUpdate(selectedItemId, itemName, itemLink, itemPrice, itemCategoryId);

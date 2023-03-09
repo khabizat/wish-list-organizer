@@ -12,8 +12,6 @@ export default function ItemList(props) {
   const [showForm, setShowForm] = useState(false);
   const [selectedItemId, setSelectedItemId] = useState(null);
   
-  console.log(items);
-
   const {
     categoryId
   } = props;
