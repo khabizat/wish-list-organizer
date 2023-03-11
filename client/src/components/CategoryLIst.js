@@ -3,6 +3,8 @@ import axios from "axios";
 
 import ListItemButton from '@mui/material/ListItemButton';
 import CategoryListItem from "./CategoryListItem";
+import IconButton from '@mui/material/IconButton';
+import Add from "@mui/icons-material/Add";
 
 import List from '@mui/material/List';
 import { 
@@ -35,6 +37,7 @@ export default function CategoryList(props) {
   
   const [categories, setCategories] = useState([]);
   const [selectedCategoryId, setSelectedCategoryId] = useState(null);
+  const [showForm, setShowForm] = useState(false);
 
   // fetch data from an API endpoint and update the categories state with the response data
   useEffect(() => {
@@ -46,6 +49,11 @@ export default function CategoryList(props) {
         console.error(error);
       });
   }, []);
+
+  //update the category list in real-time
+    const handleAdd = (newCategory) => {
+      setCategories([...categories, newCategory]);
+  };
 
   // map the categories array to a new array which contains a ListItemButton component and a CategoryListItem component for each category
   const allCategories = categories.map((category) => (
@@ -62,8 +70,19 @@ export default function CategoryList(props) {
   ));
 
   return (
-    <List>
-      {allCategories}
-    </List>
+    <>
+      <List>
+        {allCategories}
+      </List>
+      <div className="flex justify-center">
+        <IconButton
+          onClick = {() => setShowForm(!showForm)}
+          size="small"
+          aria-label="add"
+        >
+          <Add sx={{ fontSize: "40px" }} />
+        </IconButton>
+      </div>
+    </>
   );
 };
