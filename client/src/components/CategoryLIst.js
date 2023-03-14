@@ -5,6 +5,8 @@ import ListItemButton from '@mui/material/ListItemButton';
 import CategoryListItem from "./CategoryListItem";
 import IconButton from '@mui/material/IconButton';
 import Add from "@mui/icons-material/Add";
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 
 import List from '@mui/material/List';
 import { 
@@ -83,6 +85,14 @@ export default function CategoryList(props) {
           <Add sx={{ fontSize: "40px" }} />
         </IconButton>
       </div>
+      {showForm && (
+      <Box>
+        <TextField
+          id="outlined-helperText"
+          label="enter category name"
+        />
+      </Box>  
+      )}
     </>
   );
 };
