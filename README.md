@@ -52,6 +52,7 @@ Install dependencies with `npm install`.
 ```sh
 npm start
 ```
+note: use node v16.15.1
 
 ## API response examples
 
