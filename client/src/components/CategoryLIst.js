@@ -7,6 +7,8 @@ import IconButton from '@mui/material/IconButton';
 import Add from "@mui/icons-material/Add";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+
 
 import List from '@mui/material/List';
 import { 
@@ -87,11 +89,16 @@ export default function CategoryList(props) {
       </div>
       {showForm && (
       <Box>
+        <div className="flex flex-row">
         <TextField
           id="outlined-helperText"
           label="enter category name"
         />
-      </Box>  
+        <Button style={{width: '50px', marginRight: '10px', marginLeft: '10px', marginTop: '10px'}} variant="contained" color="success">
+          Add
+        </Button>
+        </div>
+      </Box>
       )}
     </>
   );
