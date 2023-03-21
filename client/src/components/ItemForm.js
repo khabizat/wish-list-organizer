@@ -114,11 +114,11 @@ export default function ItemForm(props) {
         </Box>
       ) : null }
       { isFormVisible ? (
-        <section>
+        <section className="mb-8">
           <Button onClick={cancel} style={{width: '100px', marginRight: '10px', marginLeft: '10px'}} variant="contained" color="error">
             Cancel
           </Button>
-          <Button onClick={handleSubmit} style={{width: '100px'}} variant="contained" color="success">
+          <Button onClick={handleSubmit} style={{width: '100px'}} variant="contained" color="success" >
             Save
           </Button>
         </section>
