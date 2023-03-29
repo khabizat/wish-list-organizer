@@ -13,7 +13,7 @@ Key features of this wish list SPA include the ability to add, edit, and remove 
 ## Tech Stack
 
 ```sh
-Front-End: React, JavaScript, Axios, JSX, HTML, CSS, Material UI
+Front-End: React, JavaScript, Axios, JSX, HTML, TailwindCSS, Material UI
 ```
 
 ```sh
