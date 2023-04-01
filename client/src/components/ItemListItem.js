@@ -52,7 +52,7 @@ export default function ItemListItem(props) {
   return (
     <div className="p-5 hover:bg-blue-200 hover:border-blue-300 h-64 w-1/3 md:h-auto md:w-auto">
       <div className="flex justify-between">
-        <span className="mt-4 flex justify-start">{name}</span>
+        <span className="mt-4 flex justify-start text-yellow-500 font-bold">{name}</span>
         <div className="flex justify-end space-x-2">
           <button onClick={handleEditClick}>
             <EditOutlinedIcon />
@@ -62,7 +62,7 @@ export default function ItemListItem(props) {
           </button>
         </div>
       </div>
-      <hr className="border-b-4 border-black"></hr>
+      <hr className="border-b-4 border-yellow-500"></hr>
       <span className="mt-4 flex justify-start">{price}</span>
       <Microlink url={url} />
     </div>
