@@ -39,6 +39,7 @@ export default function ItemList(props) {
 
   //delete item from the list
   const handleDelete = (itemId) => {
+    if (window.confirm("Are you sure you want to delete this item?")) {
     axios.delete(`http://localhost:8080/api/items/${parseInt(itemId, 10)}`)
       .then(() => {
         setItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
@@ -46,6 +47,7 @@ export default function ItemList(props) {
       .catch((err) => {
         console.error(err);
       });
+    }
   };
 
   //edit item from the list - get item id
