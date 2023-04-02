@@ -112,11 +112,11 @@ export default function ItemList(props) {
           size="large"
           aria-label="add"
         >
-          <Add sx={{ fontSize: "80px" }} />
+          <Add sx={{ fontSize: "4rem" }} />
         </IconButton>
       </div>
       {showForm && (
-      <ItemForm 
+      <ItemForm
         onCancel={back}
         onAdd={handleAdd}
         onUpdate={handleUpdate}

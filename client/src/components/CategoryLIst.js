@@ -84,7 +84,7 @@ export default function CategoryList(props) {
           size="small"
           aria-label="add"
         >
-          <Add sx={{ fontSize: "40px" }} />
+          <Add sx={{ fontSize: "2rem" }} />
         </IconButton>
       </div>
       {showForm && (
@@ -94,7 +94,11 @@ export default function CategoryList(props) {
           id="outlined-helperText"
           label="enter category name"
         />
-        <Button style={{width: '50px', marginRight: '10px', marginLeft: '10px', marginTop: '10px'}} variant="contained" color="success">
+        <Button 
+          style={{ width: '4rem', marginRight: '1rem', marginLeft: '1rem', marginTop: '1rem' }}
+          variant="contained"
+          color="success"
+        >
           Add
         </Button>
         </div>
