@@ -10,5 +10,6 @@ CREATE TABLE items (
   name VARCHAR(2048),
   price MONEY,
   url VARCHAR(2048),
+  date DATE NOT NULL DEFAULT CURRENT_DATE,
   category_id INTEGER REFERENCES categories(id) ON DELETE CASCADE NOT NUll
 );

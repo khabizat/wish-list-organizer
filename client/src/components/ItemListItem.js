@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import axios from "axios";
 import Microlink from '@microlink/react';
+import moment from 'moment';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import ItemForm from "./ItemForm";
@@ -12,6 +13,7 @@ export default function ItemListItem(props) {
     itemId,
     name,
     url,
+    date,
     price,
     onDelete,
     onEdit,
@@ -20,6 +22,7 @@ export default function ItemListItem(props) {
     onUpdate
   } = props;
 
+  const dateFormatted = moment.utc(date).format("MMMM Do YYYY");
 
   const [isEditing, setIsEditing] = useState(false);
 
@@ -64,6 +67,7 @@ export default function ItemListItem(props) {
       </div>
       <hr className="border-b-4 border-yellow-500"></hr>
       <span className="mt-4 flex justify-start">{price}</span>
+      <span className="mt-4 flex justify-start text-gray-400">item added {dateFormatted}</span>  
       <Microlink url={url} />
     </div>
   );

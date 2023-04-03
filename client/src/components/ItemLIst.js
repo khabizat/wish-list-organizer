@@ -92,6 +92,7 @@ export default function ItemList(props) {
         name = {item.name}
         price = {item.price}
         url = {item.url}
+        date={item.date}
         categoryId={item.category_id}
         onDelete={() => handleDelete(item.id)}
         onEdit={handleEdit}

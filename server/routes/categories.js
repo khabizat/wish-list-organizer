@@ -20,6 +20,7 @@ module.exports = (db) => {
       items.id as id,
       items.url as url,
       items.price as price,
+      items.date as date,
       items.category_id as category_id,
       items.name as name
       FROM items

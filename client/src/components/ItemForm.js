@@ -10,6 +10,7 @@ export default function ItemForm(props) {
     name,
     price,
     url,
+    date,
     categoryId,
     onCancel,
     onAdd,

@@ -8,6 +8,7 @@ module.exports = (db) => {
       items.name as name,
       items.price as price,
       items.url as url,
+      items.date as date,
       categories.id as category_id
       FROM items
       JOIN categories
@@ -29,6 +30,7 @@ module.exports = (db) => {
       items.name as name,
       items.price as price,
       items.url as url,
+      items.date as date,
       items.category_id as category_id
       FROM items
       JOIN categories
@@ -84,12 +86,9 @@ module.exports = (db) => {
 });
 
 router.put("/:itemId", (req, res) => {
-  // console.log(req.body); 
 
   const { itemId } = req.params;
   const { name, price, url, categoryId } = req.body;
-
-  // console.log("categoryId", categoryId); // Add this line
 
   db.query(
     `UPDATE items
