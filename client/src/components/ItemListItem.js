@@ -22,7 +22,7 @@ export default function ItemListItem(props) {
     onUpdate
   } = props;
 
-  const dateFormatted = moment.utc(date).format("MMMM Do YYYY");
+  const dateFormatted = moment.utc(date).format('MMMM D, YYYY');
 
   const [isEditing, setIsEditing] = useState(false);
 
@@ -66,8 +66,10 @@ export default function ItemListItem(props) {
         </div>
       </div>
       <hr className="border-b-4 border-yellow-500"></hr>
-      <span className="mt-4 flex justify-start">{price}</span>
-      <span className="mt-4 flex justify-start text-gray-400">item added {dateFormatted}</span>  
+      <div className="flex justify-between">
+        <span className="mt-4 flex justify-start">{price}</span>
+        <span className="mt-4 flex justify-start text-gray-400 text-sm">Item added {dateFormatted}</span>
+      </div>
       <Microlink url={url} />
     </div>
   );
