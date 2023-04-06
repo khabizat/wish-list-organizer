@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import moment from 'moment';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -10,7 +11,6 @@ export default function ItemForm(props) {
     name,
     price,
     url,
-    date,
     categoryId,
     onCancel,
     onAdd,
@@ -47,11 +47,13 @@ export default function ItemForm(props) {
       setSelectedItemId(null);
       cancel();
     } else {
+      const currentDate = moment().format("MMMM D, YYYY");
       axios.post("http://localhost:8080/api/items", {
         name: itemName,
         price: itemPrice,
         url: itemLink,
-        categoryId: itemCategoryId
+        categoryId: itemCategoryId,
+        date: currentDate
       })
       .then((response) => {
         reset();

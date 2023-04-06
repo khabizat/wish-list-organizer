@@ -48,12 +48,12 @@ module.exports = (db) => {
   });
 
   router.post("/", (req, res) => {
-    const { name, price, url, categoryId  } = req.body;
+    const { name, price, url, categoryId, date  } = req.body;
     db.query(
-      `INSERT INTO items (name, price, url, category_id)
-      VALUES ($1, $2, $3, $4)
+      `INSERT INTO items (name, price, url, category_id, date)
+      VALUES ($1, $2, $3, $4, $5)
       RETURNING *`,
-      [name, price, url, categoryId]
+      [name, price, url, categoryId, date]
     )
       .then((response) => {
         res.json(response.rows[0]);
