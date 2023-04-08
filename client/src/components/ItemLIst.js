@@ -60,9 +60,9 @@ export default function ItemList(props) {
   const handleUpdate = (itemId, name, url, price, categoryId) => {
     const updatedItem = {
       id: itemId,
-      name: name,
-      url: url,
-      price: price,
+      name,
+      url,
+      price,
       categoryId: parseInt(categoryId, 10)
     };
     console.log('updated item', updatedItem);
