@@ -111,7 +111,7 @@ export default function ItemForm(props) {
             label="Enter Item Category"
             type="text"
             variant="filled"
-            value={categoryId}
+            value={itemCategoryId}
             onChange={(event) => setItemCategoryId(event.target.value)}
           />
         </Box>
