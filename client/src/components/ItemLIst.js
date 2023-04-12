@@ -109,6 +109,13 @@ export default function ItemList(props) {
       <ul>
         {allItems}
       </ul>
+      {showForm && (
+      <ItemForm
+        onCancel={back}
+        onAdd={handleAdd}
+        onUpdate={handleUpdate}
+      />
+      )}
       <div className="flex justify-center">
         <IconButton
           onClick = {() => setShowForm(!showForm)}
@@ -118,13 +125,6 @@ export default function ItemList(props) {
           <Add sx={{ fontSize: "4rem" }} />
         </IconButton>
       </div>
-      {showForm && (
-      <ItemForm
-        onCancel={back}
-        onAdd={handleAdd}
-        onUpdate={handleUpdate}
-      />
-      )}
     </div>
   )
 }
