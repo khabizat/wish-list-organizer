@@ -41,7 +41,7 @@ export default function CategoryList(props) {
   
   const [categories, setCategories] = useState([]);
   const [selectedCategoryId, setSelectedCategoryId] = useState(null);
-  const [showForm, setShowForm] = useState(false);
+  // const [showForm, setShowForm] = useState(false);
 
   // fetch data from an API endpoint and update the categories state with the response data
   useEffect(() => {
@@ -54,10 +54,10 @@ export default function CategoryList(props) {
       });
   }, []);
 
-  //update the category list in real-time
-    const handleAdd = (newCategory) => {
-      setCategories([...categories, newCategory]);
-  };
+  // //update the category list in real-time
+  //   const handleAdd = (newCategory) => {
+  //     setCategories([...categories, newCategory]);
+  // };
 
   // map the categories array to a new array which contains a ListItemButton component and a CategoryListItem component for each category
   const allCategories = categories.map((category) => (
