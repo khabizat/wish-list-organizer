@@ -78,7 +78,8 @@ export default function CategoryList(props) {
       <List>
         {allCategories}
       </List>
-      <div className="flex justify-center">
+      {/* Button for adding new categories / disable temporarily */}
+      {/* <div className="flex justify-center">
         <IconButton
           onClick = {() => setShowForm(!showForm)}
           size="small"
@@ -86,8 +87,9 @@ export default function CategoryList(props) {
         >
           <Add sx={{ fontSize: "2rem" }} />
         </IconButton>
-      </div>
-      {showForm && (
+      </div> */}
+      {/* Form for adding new categories/ disable temporarily */}
+      {/* {showForm && (
       <Box>
         <div className="flex flex-row">
         <TextField
@@ -103,7 +105,7 @@ export default function CategoryList(props) {
         </Button>
         </div>
       </Box>
-      )}
+      )} */}
     </>
   );
 };
