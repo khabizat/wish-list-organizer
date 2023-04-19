@@ -4,6 +4,7 @@ import ItemListItem from "./ItemListItem";
 import ItemForm from "./ItemForm";
 import IconButton from '@mui/material/IconButton';
 import Add from "@mui/icons-material/Add";
+import TextField from '@mui/material/TextField';
 import useVisualMode from "../hooks/useVisualMode";
 
 export default function ItemList(props) {
@@ -105,7 +106,13 @@ export default function ItemList(props) {
 
 
   return (
-    <div>
+    <div className="mt-4">
+      <TextField
+        id="outlined-basic"
+        label="Search"
+        variant="outlined"
+        type="search"
+      />
       <ul>
         {allItems}
       </ul>
