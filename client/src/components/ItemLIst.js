@@ -3,6 +3,8 @@ import axios from "axios";
 import ItemListItem from "./ItemListItem";
 import ItemForm from "./ItemForm";
 import IconButton from '@mui/material/IconButton';
+import InputAdornment from '@mui/material/InputAdornment';
+import SearchIcon from "@mui/icons-material/Search";
 import Add from "@mui/icons-material/Add";
 import TextField from '@mui/material/TextField';
 import useVisualMode from "../hooks/useVisualMode";
@@ -107,11 +109,22 @@ export default function ItemList(props) {
 
   return (
     <div className="mt-4">
-      <TextField
+      {/* <TextField
         id="outlined-basic"
         label="Search"
         variant="outlined"
         type="search"
+      /> */}
+      <TextField
+        className="w-full mb-4"
+        label="Search item"
+        InputProps={{
+        endAdornment: (
+          <IconButton>
+            <SearchIcon />
+          </IconButton>
+        )
+        }}
       />
       <ul>
         {allItems}
