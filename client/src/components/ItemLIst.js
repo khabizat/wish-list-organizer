@@ -14,6 +14,7 @@ export default function ItemList(props) {
   const [items, setItems] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [selectedItemId, setSelectedItemId] = useState(null);
+  const [searchItem, setSearchItem] = useState('');
   
   const {
     categoryId
@@ -86,8 +87,12 @@ export default function ItemList(props) {
       });
   };
 
-  const allItems = items.map((item) => {
-    // console.log(items)
+  // filter item list to show matched items
+  const filteredItems = items.filter((item) => {
+    return item.name.toLowerCase().includes(searchItem.toLowerCase());
+  });
+
+  const allItems = filteredItems.map((item) => {
     return (
       <ItemListItem
         key={item.id}
@@ -118,6 +123,8 @@ export default function ItemList(props) {
       <TextField
         className="w-full mb-4"
         label="Search item"
+        value={searchItem}
+        onChange={(e) => setSearchItem(e.target.value)}
         InputProps={{
         endAdornment: (
           <IconButton>
