@@ -31,18 +31,6 @@ Install dependencies with `npm install`.
 
 
 ## Running API Server
-  
-   ### Create database using host enviroment i.e Vagrant
-   1. Use the psql -U command to login to the PostgreSQL server. This command must be run in a vagrant terminal.
-   2. Create a database with the command CREATE DATABASE.
-   3. Copy the .env.example file to .env.development and fill in the necessary PostgreSQL configuration. The node-postgres library uses these environment    variables by default.
-
-   ### Seed the database while logged in to psql
-   ```sh
-    \i db/seeds/seeds.sql
-  ```
-   
-  ### Run the API server
   ```sh
   npm start
   ```
